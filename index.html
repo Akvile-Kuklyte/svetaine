@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pattern or bad luck? | Numbers That Speak by Akvile</title>
+<meta name="description" content="Three questions. One minute. Find out what's actually repeating in your life.">
+<meta property="og:title" content="Pattern or bad luck?">
+<meta property="og:description" content="Three questions. One minute. Find out what's actually repeating in your life.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1E3A5F">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/akvile-gamta.jpg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="brand">Numbers That Speak by Akvile</p>
+      <h1>Pattern or bad&nbsp;luck?</h1>
+      <p class="hero-sub">Three questions. One minute. Find out what's actually repeating in your life.</p>
+      <a class="btn btn-light" href="#test" data-start>Start the test</a>
+    </div>
+    <figure class="hero-photo">
+      <img src="img/akvile-gamta.jpg" width="1125" height="1500" alt="Akvile Kuklyte outdoors, smelling a purple flower under a blue sky">
+    </figure>
+  </div>
+</header>
+
+<main>
+
+  <section class="intro" id="test" aria-labelledby="intro-title">
+    <div class="wrap intro-grid">
+      <div class="intro-text">
+        <h2 id="intro-title">The same ending again</h2>
+        <p>I used to ask myself every day: why me, and why like this? Maybe you know that question too.</p>
+        <p>The same person, just with a different name. The same heavy feeling on a Sunday evening. The same “I'll start again on Monday” that never really starts.</p>
+        <p>But not everything that happened twice is a pattern. Sometimes it really is just a hard season. So first, it's worth telling one from the other.</p>
+      </div>
+
+      <div class="quiz" aria-live="polite">
+
+        <div class="step" data-step="0">
+          <h3 class="step-title" tabindex="-1">Try this now</h3>
+          <label class="field-label" for="sentence">Write one sentence about what has happened in your life more than once.</label>
+          <textarea id="sentence" rows="3" aria-describedby="sentence-help"></textarea>
+          <p class="help" id="sentence-help">Not why. Just what. It stays on your screen and is not sent anywhere.</p>
+          <div class="actions">
+            <button class="btn btn-dark" type="button" data-next>Go to the questions</button>
+          </div>
+        </div>
+
+        <div class="step" data-step="1" hidden>
+          <p class="count"><span class="num">1</span> of 3</p>
+          <blockquote class="your-sentence" hidden></blockquote>
+          <h3 class="question" tabindex="-1">Has the same ending happened at least three times?</h3>
+          <p class="help">With different people, jobs or places.</p>
+          <div class="answers">
+            <button class="btn btn-answer" type="button" data-answer="yes">Yes</button>
+            <button class="btn btn-answer" type="button" data-answer="no">No</button>
+          </div>
+          <button class="back" type="button" data-back>Back</button>
+        </div>
+
+        <div class="step" data-step="2" hidden>
+          <p class="count"><span class="num">2</span> of 3</p>
+          <blockquote class="your-sentence" hidden></blockquote>
+          <h3 class="question" tabindex="-1">Did it feel familiar before it even started?</h3>
+          <p class="help">That feeling: “I already know how this ends.”</p>
+          <div class="answers">
+            <button class="btn btn-answer" type="button" data-answer="yes">Yes</button>
+            <button class="btn btn-answer" type="button" data-answer="no">No</button>
+          </div>
+          <button class="back" type="button" data-back>Back</button>
+        </div>
+
+        <div class="step" data-step="3" hidden>
+          <p class="count"><span class="num">3</span> of 3</p>
+          <blockquote class="your-sentence" hidden></blockquote>
+          <h3 class="question" tabindex="-1">Did it happen again after you changed the person, the job or the city?</h3>
+          <p class="help">A different setting, the same ending.</p>
+          <div class="answers">
+            <button class="btn btn-answer" type="button" data-answer="yes">Yes</button>
+            <button class="btn btn-answer" type="button" data-answer="no">No</button>
+          </div>
+          <button class="back" type="button" data-back>Back</button>
+        </div>
+
+        <div class="step result" data-step="pattern" hidden>
+          <p class="count">Two or three yes</p>
+          <h3 class="result-title" tabindex="-1">It's not bad luck. It's a pattern.</h3>
+          <p>And the good news is that a pattern can be seen. <a href="#repeats">Read on to see where it comes from.</a></p>
+          <div class="actions">
+            <a class="btn btn-dark" href="https://drive.google.com/file/d/1qp03Z4hz1PP0IS8I00X6hfQCEhrYIHH9/view?usp=sharing" target="_blank" rel="noopener">Get the full guide</a>
+            <button class="back" type="button" data-restart>Take the test again</button>
+          </div>
+          <p class="help">A free 4-page PDF guide. It opens in Google Drive.</p>
+        </div>
+
+        <div class="step result" data-step="season" hidden>
+          <p class="count">None or one yes</p>
+          <h3 class="result-title" tabindex="-1">It may really be a hard season.</h3>
+          <p>Be gentle with yourself, and don't look for blame where there is none.</p>
+          <div class="actions">
+            <a class="btn btn-dark" href="https://drive.google.com/file/d/1qp03Z4hz1PP0IS8I00X6hfQCEhrYIHH9/view?usp=sharing" target="_blank" rel="noopener">Get the full guide</a>
+            <button class="back" type="button" data-restart>Take the test again</button>
+          </div>
+          <p class="help">A free 4-page PDF guide. It opens in Google Drive.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="repeats" id="repeats" aria-labelledby="repeats-title">
+    <div class="wrap">
+      <div class="repeats-grid">
+      <div class="video">
+        <video controls playsinline preload="metadata" poster="video/why-me-poster.jpg" width="720" height="1280" aria-label="Akvile talks about asking “why me” and what changed">
+          <source src="video/why-me.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="repeats-text">
+        <h2 id="repeats-title">What actually repeats</h2>
+        <p>When something keeps happening, it feels like fate. Or like something is wrong with you. It's neither. Maybe you already know a lot about yourself. You understand exactly why you do it. And you still do it.</p>
+        <p>That's because things don't repeat through knowing. They repeat through the choices you make, or don't make. And behind a choice there is almost always a state: guilt, fear, anger.</p>
+        <p>It doesn't mean you choose badly. You choose from a state you learned a long time ago, often as a child. That's why a new person or a new city brings the same ending.</p>
+        <blockquote class="pull">Change doesn't come from changing the person or the city. It comes when you work through the state you choose from.</blockquote>
+      </div>
+      </div>
+
+      <div class="states">
+        <h3 id="states-title">Think of the last time it happened. What was in you at the moment you chose?</h3>
+        <div class="chips" role="group" aria-labelledby="states-title">
+          <button type="button" class="chip" aria-pressed="false">Guilt</button>
+          <button type="button" class="chip" aria-pressed="false">Fear</button>
+          <button type="button" class="chip" aria-pressed="false">Anger</button>
+          <button type="button" class="chip" aria-pressed="false">Sense of duty</button>
+          <button type="button" class="chip" aria-pressed="false">Not loving yourself</button>
+          <button type="button" class="chip" aria-pressed="false">Feeling like a victim</button>
+          <button type="button" class="chip" aria-pressed="false">Fear of being seen</button>
+        </div>
+        <p class="notice" hidden aria-live="polite">Next time you feel it, just notice it. You don't need to change anything yet. It's enough to quietly say to yourself: “Oh, it's you again.”</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="numbers" aria-labelledby="numbers-title">
+    <div class="wrap numbers-inner">
+      <h2 id="numbers-title" class="visually-hidden">Where the numbers come in</h2>
+      <p class="statement">Numbers show the direction. The change comes through the&nbsp;state.</p>
+      <div class="numbers-text">
+        <p>Numbers don't decide anything, and they don't write your fate. Numerology gives direction. Your date of birth shows which energies are strongest in you, and which state is worth looking at first.</p>
+        <p>But knowing is not enough. A free online calculator gives you a text that fits you and your brother too.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="about-title">
+    <div class="wrap about-grid">
+      <figure class="about-photo">
+        <img src="img/akvile-gamtoje.jpg" width="1152" height="1440" loading="lazy" alt="Akvile Kuklyte lying on a blanket in the grass with her eyes closed">
+      </figure>
+      <div class="about-text">
+        <h2 id="about-title">I'm Akvile Kuklyte</h2>
+        <p>I work with numerology and with the states behind a pattern: guilt, fear, anger, feeling like a victim. I live in London and work in English and Lithuanian.</p>
+
+        <div class="next">
+          <p class="word">One word: <strong>PATTERN</strong></p>
+          <p>If you answered “yes” at least twice and you want to look at your pattern together, send me this word. Wherever is easiest for you. I reply personally.</p>
+          <div class="actions">
+            <a class="btn btn-dark" href="https://ig.me/m/seven_goldie" target="_blank" rel="noopener">Message me</a>
+            <span class="also">or on <a href="https://www.tiktok.com/@akvile_soul_align" target="_blank" rel="noopener">TikTok</a> and <a href="https://m.me/61577320701564" target="_blank" rel="noopener">Facebook</a></span>
+          </div>
+          <p class="soft">If it's not the time yet, that's okay. <a href="https://drive.google.com/file/d/1qp03Z4hz1PP0IS8I00X6hfQCEhrYIHH9/view?usp=sharing" target="_blank" rel="noopener">Get the full guide</a> and keep it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="helpline">If things feel very heavy right now and your thoughts are dark, please reach out first. In the UK, call Samaritans on <a href="tel:116123">116 123</a>, free and at any time. Elsewhere, contact your local helpline.</p>
+    <div class="footer-row">
+      <p class="brand">Numbers That Speak by Akvile</p>
+      <ul class="social">
+        <li><a href="https://www.tiktok.com/@akvile_soul_align" target="_blank" rel="noopener">TikTok @akvile_soul_align</a></li>
+        <li><a href="https://www.facebook.com/people/Numbers-That-Speak-by-Akvile/61577320701564/" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/seven_goldie/" target="_blank" rel="noopener">Instagram @seven_goldie</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

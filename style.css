@@ -1,0 +1,364 @@
+/* Spalvos, šriftai ir tonas iš context/stilius.md.
+   Fonas sodresnis (C variantas, Akvilė 2026-09-24: šviesus kreminis „rėžia akį“). */
+:root {
+  --blue: #1E3A5F;
+  --blue-mid: #3D6B8C;
+  --blue-light: #93A8BD;
+  --gold: #C08A3E;
+  --paper: #D3C2A2;
+  --card: #E2D4BA;
+  --line: #BFAA85;
+  --text: #1C2530;
+  --text-2: #414B57;
+  --on-blue: #F2ECE0;
+
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Open Sans', 'Segoe UI', system-ui, sans-serif;
+
+  /* Kampai: kortelės ir nuotraukos 16px, laukeliai 12px, mygtukai ir žymės apvalūs */
+  --r-card: 16px;
+  --r-field: 12px;
+
+  --ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: .015em;
+  line-height: 1.15;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--blue); text-underline-offset: .2em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible { outline: 3px solid var(--blue-mid); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { width: min(100% - 2.5rem, 72rem); margin-inline: auto; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ---------- Mygtukai ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 3.25rem; padding: .8rem 1.9rem;
+  border: 0; border-radius: 999px;
+  font: 600 1rem/1.2 var(--sans); letter-spacing: .01em;
+  text-decoration: none; white-space: nowrap; cursor: pointer;
+  transition: transform .2s var(--ease), background-color .2s ease, box-shadow .2s ease;
+}
+.btn:active { transform: translateY(1px) scale(.98); }
+.btn-light { background: var(--on-blue); color: var(--blue); }
+.btn-dark { background: var(--blue); color: var(--on-blue); }
+
+/* ---------- Viršus: gilios mėlynos juosta ---------- */
+.hero {
+  background: var(--blue);
+  color: var(--on-blue);
+  padding-top: clamp(2.5rem, 6vw, 5rem);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: end;
+}
+.hero-text { padding-bottom: clamp(3rem, 8vw, 7rem); align-self: center; }
+.brand {
+  font: 600 .78rem/1.4 var(--sans);
+  letter-spacing: .24em; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 4.6vw, 4.1rem);
+  line-height: 1.08;
+  color: var(--on-blue);
+  margin-bottom: 1.5rem;
+}
+.hero-sub {
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  color: var(--blue-light);
+  max-width: 34ch;
+  margin-bottom: 2.25rem;
+}
+.hero-photo { margin: 0; }
+.hero-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 12%;
+  border-radius: var(--r-card) var(--r-card) 0 0;
+}
+
+/* ---------- Įžanga ir testas ---------- */
+.intro { padding-block: clamp(4rem, 9vw, 7.5rem); }
+.intro-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+}
+.intro h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); margin-bottom: 1.5rem; }
+.intro-text p { max-width: 38ch; }
+
+.quiz {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  min-height: 25rem;
+  box-shadow: 0 18px 40px -24px rgba(30, 58, 95, .35);
+}
+.step { display: flex; flex-direction: column; align-items: flex-start; }
+.step[hidden], .notice[hidden], .your-sentence[hidden] { display: none; }
+.step.is-entering { animation: step-in .45s var(--ease) both; }
+@keyframes step-in { from { opacity: 0; transform: translateY(10px); } }
+@media (prefers-reduced-motion: reduce) { .step.is-entering { animation: none; } }
+
+.step-title { font-size: 1.75rem; margin-bottom: 1.25rem; outline: none; }
+.field-label { font-weight: 600; margin-bottom: .6rem; display: block; }
+textarea {
+  width: 100%;
+  font: 400 1.0625rem/1.5 var(--sans);
+  color: var(--text);
+  background: #EAE0CC;
+  border: 1px solid #A8977A;
+  border-radius: var(--r-field);
+  padding: .85rem 1rem;
+  resize: vertical;
+}
+textarea:focus-visible { outline: 3px solid var(--blue-mid); outline-offset: 1px; }
+.help { color: var(--text-2); font-size: .95rem; margin: .6rem 0 0; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1.75rem; }
+
+.count {
+  font-size: .95rem; color: var(--text-2);
+  margin-bottom: 1.5rem;
+}
+.count .num {
+  font-family: var(--serif); font-size: 1.6rem; line-height: 1;
+  color: #8A6428; margin-right: .15em;
+}
+.your-sentence {
+  margin: 0 0 1.5rem;
+  padding: .2rem 0 .2rem 1rem;
+  border-left: 3px solid var(--gold);
+  color: var(--text-2);
+  font-style: italic;
+  max-width: 48ch;
+}
+.question {
+  font-size: clamp(1.6rem, 2.6vw, 2.15rem);
+  line-height: 1.22;
+  max-width: 22ch;
+  outline: none;
+}
+.answers { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; width: 100%; margin-top: 2rem; }
+.btn-answer {
+  background: transparent; color: var(--blue);
+  border: 1.5px solid var(--blue);
+  min-height: 3.75rem; font-size: 1.1rem;
+}
+.back {
+  background: none; border: 0; padding: .4rem 0; margin-top: 1.25rem;
+  font: 600 .95rem var(--sans); color: var(--text-2);
+  text-decoration: underline; text-underline-offset: .25em; cursor: pointer;
+}
+.result .actions .back { margin-top: 0; }
+
+.result-title {
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  margin-bottom: 1.25rem;
+  outline: none;
+  max-width: 16ch;
+}
+.result p { max-width: 42ch; }
+
+/* ---------- Kas iš tikrųjų kartojasi ---------- */
+.repeats { padding-bottom: clamp(4rem, 9vw, 7.5rem); }
+.repeats-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
+}
+.video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: var(--r-card);
+  background: var(--blue);
+  box-shadow: 0 24px 50px -28px rgba(30, 58, 95, .55);
+}
+.repeats-text { max-width: 40rem; }
+.repeats h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); margin-bottom: 1.5rem; }
+.pull {
+  margin: 2.25rem 0 0;
+  padding-left: 1.4rem;
+  border-left: 3px solid var(--gold);
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  line-height: 1.45;
+  color: var(--blue);
+}
+
+.states {
+  max-width: 44rem;
+  margin: clamp(3.5rem, 7vw, 5rem) 0 0;
+}
+.states h3 { font-size: clamp(1.35rem, 2.1vw, 1.7rem); line-height: 1.3; margin-bottom: 1.5rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .65rem; }
+.chip {
+  font: 600 1rem/1.2 var(--sans);
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid #A8977A;
+  border-radius: 999px;
+  padding: .7rem 1.2rem;
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.chip[aria-pressed="true"] { background: var(--blue); color: var(--on-blue); border-color: var(--blue); }
+.notice {
+  margin-top: 1.75rem;
+  padding-left: 1.4rem;
+  border-left: 3px solid var(--gold);
+  max-width: 44ch;
+}
+.notice.is-entering { animation: step-in .45s var(--ease) both; }
+@media (prefers-reduced-motion: reduce) { .notice.is-entering { animation: none; } }
+
+/* ---------- Kur čia skaičiai ---------- */
+.numbers {
+  border-top: 1px solid var(--line);
+  padding-block: clamp(4rem, 9vw, 7.5rem);
+}
+.numbers-inner {
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: end;
+}
+.statement {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4.6vw, 3.9rem);
+  line-height: 1.12;
+  letter-spacing: .01em;
+  color: var(--blue);
+  margin: 0;
+  text-wrap: balance;
+}
+.numbers-text { color: var(--text-2); }
+
+/* ---------- Apie Akvilę ---------- */
+.about { padding-bottom: clamp(4rem, 9vw, 7.5rem); }
+.about-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
+}
+.about-photo { margin: 0; }
+.about-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 100%;
+  border-radius: var(--r-card);
+}
+.about h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); margin-bottom: 1.25rem; }
+.about-text > p { max-width: 42ch; }
+.next {
+  margin-top: 2.5rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--line);
+}
+.word { font-family: var(--serif); font-size: clamp(1.5rem, 2.4vw, 1.9rem); color: var(--blue); margin-bottom: .9rem; }
+.word strong { font-weight: 500; letter-spacing: .08em; }
+.next > p { max-width: 46ch; }
+.also { color: var(--text-2); }
+.soft { color: var(--text-2); margin-top: 1.5rem; font-size: .98rem; }
+
+/* ---------- Apačia ---------- */
+.footer {
+  background: var(--card);
+  border-top: 1px solid var(--line);
+  padding-block: 2.75rem 3rem;
+  font-size: .95rem;
+}
+.helpline { max-width: 60ch; color: var(--text-2); margin-bottom: 2rem; }
+.footer-row {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+  gap: 1rem 2rem;
+}
+.footer .brand { margin: 0; color: #6E5020; }
+.social { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem 1.75rem; }
+
+/* Užvedimas pele: tik ten, kur yra pelė (telefone spalva „neprilimpa“) */
+@media (hover: hover) {
+  .btn-light:hover { background: #fff8ec; box-shadow: 0 8px 24px rgba(10, 23, 38, .35); }
+  .btn-dark:hover { background: #274a74; box-shadow: 0 8px 22px rgba(30, 58, 95, .22); }
+  .btn-answer:hover { background: var(--blue); color: var(--on-blue); }
+  .back:hover { color: var(--blue); }
+  .chip:hover { border-color: var(--blue); }
+}
+.btn-answer:active { background: var(--blue); color: var(--on-blue); }
+
+/* ---------- Telefonas ---------- */
+@media (max-width: 767px) {
+  body { font-size: 1rem; }
+  .hero { padding-top: 2rem; }
+  .hero-grid { grid-template-columns: 1fr; gap: 0; }
+  .hero-text { padding-bottom: 2.25rem; }
+  .brand { margin-bottom: 1.25rem; font-size: .72rem; }
+  .hero h1 { font-size: clamp(2.2rem, 10vw, 2.7rem); margin-bottom: .9rem; }
+  .hero-sub { margin-bottom: 1.6rem; }
+  .hero-photo img { aspect-ratio: 5 / 4; object-position: 50% 18%; }
+
+  .intro { padding-block: 3.25rem; }
+  .intro-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .quiz { min-height: 0; padding: 1.5rem 1.25rem 1.75rem; }
+  .step-title { font-size: 1.5rem; }
+  .btn { white-space: normal; text-align: center; }
+  .step .actions .btn { width: 100%; }
+
+  .repeats-grid { grid-template-columns: 1fr; gap: 2.25rem; }
+  .video { max-width: 20rem; }
+  .states { margin-left: 0; }
+
+  .numbers-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .about-photo img { aspect-ratio: 1 / 1; }
+  .next .actions { flex-direction: column; align-items: stretch; }
+  .next .actions .btn { width: 100%; }
+  .also { text-align: center; }
+}
