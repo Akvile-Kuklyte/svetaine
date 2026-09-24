@@ -1,2 +1,4 @@
 serveris.js
 paleisk-svetaine.bat
+.env*
+.vercel
