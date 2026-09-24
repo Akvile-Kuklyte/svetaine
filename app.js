@@ -1,3 +1,29 @@
+// Dangus viršuje: žvaigždės išbarstomos atsitiktinai, kiekviena mirga savo ritmu.
+(function () {
+  const sky = document.querySelector('.sky');
+  if (!sky) return;
+  const count = window.innerWidth < 768 ? 45 : 90;
+  for (let i = 0; i < count; i++) {
+    const star = document.createElement('span');
+    const size = Math.random() < .85 ? 1 + Math.random() * 1.5 : 2.5 + Math.random();
+    star.className = Math.random() < .2 ? 'star gold' : 'star';
+    star.style.cssText =
+      `left:${Math.random() * 100}%;top:${Math.random() * 100}%;width:${size}px;height:${size}px;` +
+      `--t:${(2.5 + Math.random() * 4).toFixed(2)}s;--d:${(-Math.random() * 6).toFixed(2)}s`;
+    sky.appendChild(star);
+  }
+  // tik kelios spindi stipriau
+  const bright = window.innerWidth < 768 ? 3 : 6;
+  for (let i = 0; i < bright; i++) {
+    const star = document.createElement('span');
+    star.className = 'star bright';
+    star.style.cssText =
+      `left:${4 + Math.random() * 92}%;top:${4 + Math.random() * 88}%;width:3px;height:3px;` +
+      `--t:${(4 + Math.random() * 3).toFixed(2)}s;--d:${(-Math.random() * 6).toFixed(2)}s`;
+    sky.appendChild(star);
+  }
+})();
+
 // Testas „Pattern or bad luck?“: vienas žingsnis ekrane, atsakymai lieka tik naršyklėje.
 (function () {
   const quiz = document.querySelector('.quiz');
